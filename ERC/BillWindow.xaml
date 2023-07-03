@@ -1,0 +1,79 @@
+﻿<Window x:Class="ERC.BillWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERC"
+        mc:Ignorable="d"
+        Title="BillWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="99*"/>
+            <ColumnDefinition Width="31*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="1" Grid.Column="3" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="1" Grid.Column="2" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="1" Grid.Column="3" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="2" Grid.Column="1" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="3" Grid.Column="1" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="4" Grid.Column="1" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="5" Grid.Column="1" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="6" Grid.Column="1" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="7" Grid.Column="1" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="8" Grid.Column="2" BorderThickness="3,3,3,3" BorderBrush="Black"/>
+        <Border Grid.Row="2" Grid.Column="2" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="3" Grid.Column="2" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="4" Grid.Column="2" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="5" Grid.Column="2" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="6" Grid.Column="2" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="7" Grid.Column="2" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="2" Grid.Column="3" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="3" Grid.Column="3" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="4" Grid.Column="3" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="5" Grid.Column="3" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="6" Grid.Column="3" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="7" Grid.Column="3" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <Border Grid.Row="8" Grid.Column="3" BorderThickness="1,1,1,1" BorderBrush="Black"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">Объём услуг</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">Стоимость услуг</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">ХВС:</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">ГВС Теплоноситель:</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">ГВС Тепловая энергия:</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">ЭЭ день:</TextBlock>
+        <TextBlock Grid.Row="6" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">ЭЭ ночь:</TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">ЭЭ общее:</TextBlock>
+        <TextBlock Grid.Row="8" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0">Итого:</TextBlock>
+        <TextBlock x:Name="TextVolCW"  Grid.Row="2" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextVolWWV" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextVolWWE" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextVolElD" Grid.Row="5" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextVolElN" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextVolElFull" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextPriceCW" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextPriceWWV" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextPriceWWE" Grid.Row="4" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextPriceElD" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextPriceElN" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextPriceElFull" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <TextBlock x:Name="TextFullPrice" Grid.Row="8" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0">10000</TextBlock>
+        <Button Click="Button_Click" Grid.Row="10" Grid.Column="1">Окончить</Button>
+    </Grid>
+</Window>

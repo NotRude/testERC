@@ -1,0 +1,70 @@
+﻿<Window x:Class="ERC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERC"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <CheckBox
+            x:Name="CheckCW"
+            Checked="CheckCW_Checked"
+            Unchecked="CheckCW_Unchecked"
+            Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="False"/>
+        <CheckBox
+            x:Name="CheckWW"
+            Checked="CheckWW_Checked"
+            Unchecked="CheckWW_Unchecked"
+            Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <CheckBox
+            x:Name="CheckEl"
+            Checked="CheckEl_Checked"
+            Unchecked="CheckEl_Unchecked"
+            Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">Число члеовек:</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">ХВС:</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">ГВС:</TextBlock>
+        <TextBlock Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">Электроэнергия день:</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center">Электроэнергия ночь:</TextBlock>
+        <TextBox 
+            x:Name="TextPC"
+            Grid.Row="1" Grid.Column="3" Width="100" HorizontalAlignment="Left" Margin="5,1,0,1">0</TextBox>
+        <TextBox 
+            x:Name="TextCW"
+            Visibility="Hidden"
+            Grid.Row="2" Grid.Column="3" Width="100" HorizontalAlignment="Left" Margin="5,1,0,1">-1</TextBox>
+        <TextBox 
+            x:Name="TextWW"
+            Visibility="Hidden"
+            Grid.Row="3" Grid.Column="3" Width="100" HorizontalAlignment="Left" Margin="5,1,0,1">-1</TextBox>
+        <TextBox 
+            x:Name="TextElD"
+            Visibility="Hidden"
+            Grid.Row="4" Grid.Column="3" Width="100" HorizontalAlignment="Left" Margin="5,1,0,1">-1</TextBox>
+        <TextBox 
+            x:Name="TextElN"
+            Visibility="Hidden"
+            Grid.Row="5" Grid.Column="3" Width="100" HorizontalAlignment="Left" Margin="5,1,0,1">-1</TextBox>
+        <Button 
+            Click="Button_Click"
+            Grid.Row="7" Grid.Column="2">Передать</Button>
+    </Grid>
+</Window>
