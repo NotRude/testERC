@@ -1146,11 +1146,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\vsleo\\source\\repos\\ERC\\ERC\\ERC.csproj",
+      "projectUniqueName": "C:\\Users\\vsleo\\OneDrive\\Рабочий стол\\Новая папка (4)\\ERC\\ERC.csproj",
       "projectName": "ERC",
-      "projectPath": "C:\\Users\\vsleo\\source\\repos\\ERC\\ERC\\ERC.csproj",
+      "projectPath": "C:\\Users\\vsleo\\OneDrive\\Рабочий стол\\Новая папка (4)\\ERC\\ERC.csproj",
       "packagesPath": "C:\\Users\\vsleo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\vsleo\\source\\repos\\ERC\\ERC\\obj\\",
+      "outputPath": "C:\\Users\\vsleo\\OneDrive\\Рабочий стол\\Новая папка (4)\\ERC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

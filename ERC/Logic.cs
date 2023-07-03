@@ -7,7 +7,7 @@ namespace ERC
         public static double GetConsumVolume(double relevantData, double pastData) => relevantData - pastData;
         public static double GetBill(double consumVolume, double tariff)
             => consumVolume * tariff;
-        public static double GetNorm(int personsCount, double norm)
+        public static double GetNorm(double personsCount, double norm)
             => personsCount * norm;
         public static double GetWarmWaterEnergy(double warmWaterVol)
         {

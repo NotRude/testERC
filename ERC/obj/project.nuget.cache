@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Lw6I4krn0ASt9+7au/3lH/fLSVzbEYW7nifYOBesIhin/26MjuP9We1/B5prCM9Kp6HaB8MYSuoZE0Zy0WqkRg==",
+  "dgSpecHash": "9MHSsixbzgq+XmstOKNYWNs0Nfa8CIbYnw/ZywUWMyaT2JTW1ICaLoa80NSvDMN6HlGwX8JdZfh8UmnEk/53yg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\vsleo\\source\\repos\\ERC\\ERC\\ERC.csproj",
+  "projectFilePath": "C:\\Users\\vsleo\\OneDrive\\Рабочий стол\\Новая папка (4)\\ERC\\ERC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\vsleo\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.8\\microsoft.data.sqlite.core.7.0.8.nupkg.sha512",
     "C:\\Users\\vsleo\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.8\\microsoft.entityframeworkcore.7.0.8.nupkg.sha512",

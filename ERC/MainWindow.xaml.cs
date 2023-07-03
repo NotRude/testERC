@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 
@@ -10,6 +11,8 @@ namespace ERC
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Dictionary<int, int> daysPersonPairs = new Dictionary<int, int>();
+        private int daysCount = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
         public MainWindow()
         {
 
@@ -44,13 +47,18 @@ namespace ERC
             db.SaveChanges();
             
             InitializeComponent();
+            
+            for(var i = 1; i <= daysCount; i++)
+            {
+                ComboBox.Items.Add(i);
+            }
+            ComboBox.SelectedIndex = ComboBox.Items.Count - 1;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             double d;
-            var tryParse = Int32.TryParse(TextPC.Text, out int n)
-                && double.TryParse(TextCW.Text, out d)
+            var tryParse =  double.TryParse(TextCW.Text, out d)
                 && double.TryParse(TextWW.Text, out d)
                 && double.TryParse(TextElD.Text, out d)
                 && double.TryParse(TextElN.Text, out d);
@@ -59,13 +67,20 @@ namespace ERC
                 MessageBox.Show("Введены не корректные данные!");
                 return;
             }
-            
-            var personCount = Int32.Parse(TextPC.Text);
-            if(personCount < 1)
+            var personCount = 0.0;
+            if (TextPC.Visibility == Visibility.Visible)
             {
-                MessageBox.Show("Введите число человек");
-                return;
-            }
+                if (ComboBox.Items.Count > 0)
+                {
+                    MessageBox.Show("Заполните количество человек и дней");
+                    return;
+                }
+                foreach(var p in daysPersonPairs)
+                {
+                    personCount += p.Value * p.Key;
+                }
+                personCount = personCount / daysCount;
+            }           
             var coldWater = double.Parse(TextCW.Text);
             var warmWater = double.Parse(TextWW.Text);
             var electricityDay = double.Parse(TextElD.Text);
@@ -88,6 +103,7 @@ namespace ERC
             TextCW.Text = "0";
             if(CheckWW.IsChecked.Value  && CheckEl.IsChecked.Value)
             {
+                Button_PC.Visibility = Visibility.Hidden;
                 TextPC.Visibility = Visibility.Hidden;
                 TextPC.Text = "1";
             }
@@ -97,6 +113,7 @@ namespace ERC
         {
             TextCW.Visibility = Visibility.Hidden;
             TextCW.Text = "-1";
+            Button_PC.Visibility = Visibility.Visible;
             TextPC.Visibility = Visibility.Visible;
             TextPC.Text = "0";
         }
@@ -107,6 +124,7 @@ namespace ERC
             TextWW.Text = "0";
             if (CheckCW.IsChecked.Value && CheckEl.IsChecked.Value)
             {
+                Button_PC.Visibility = Visibility.Hidden;
                 TextPC.Visibility = Visibility.Hidden;
                 TextPC.Text = "1";
             }
@@ -116,6 +134,7 @@ namespace ERC
         {
             TextWW.Visibility = Visibility.Hidden;
             TextWW.Text = "-1";
+            Button_PC.Visibility = Visibility.Visible;
             TextPC.Visibility = Visibility.Visible;
             TextPC.Text = "0";
         }
@@ -128,6 +147,7 @@ namespace ERC
             TextElN.Text = "0";
             if (CheckWW.IsChecked.Value && CheckCW.IsChecked.Value)
             {
+                Button_PC.Visibility = Visibility.Hidden;
                 TextPC.Visibility = Visibility.Hidden;
                 TextPC.Text = "1";
             }
@@ -139,8 +159,41 @@ namespace ERC
             TextElN.Visibility = Visibility.Hidden;
             TextElD.Text = "-1";
             TextElN.Text = "-1";
+            Button_PC.Visibility = Visibility.Visible;
             TextPC.Visibility = Visibility.Visible;
             TextPC.Text = "0";
+        }
+
+        private void Button_PC_Click(object sender, RoutedEventArgs e)
+        {
+            if(!Int32.TryParse(TextPC.Text, out int n))
+            {
+                MessageBox.Show("Введены не корректные данные!");
+                return;
+            }
+            var personCount = Int32.Parse(TextPC.Text);
+            if (personCount < 1)
+            {
+                MessageBox.Show("Введите число человек");
+                return;
+            }
+            var daysCount = ComboBox.SelectedIndex + 1;
+            for(var i = 0; i < daysCount; i++)
+            {
+                ComboBox.Items.RemoveAt(ComboBox.Items.Count - 1);
+            }
+            ComboBox.SelectedIndex = ComboBox.Items.Count - 1;
+            InfoPD.Text += "\n" + daysCount + "/" + personCount;
+            if (daysPersonPairs.ContainsKey(personCount))
+            {
+                daysPersonPairs[personCount] += daysCount;
+            }
+            else
+                daysPersonPairs.Add(personCount, daysCount);
+            if(ComboBox.Items.Count == 0)
+            {
+                Button_PC.Visibility = Visibility.Hidden;
+            }
         }
     }
 }

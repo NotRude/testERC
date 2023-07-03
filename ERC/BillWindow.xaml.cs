@@ -15,20 +15,20 @@ namespace ERC
             using(var db = new AppContext())
             {
                 var bill = db.Bills.OrderBy(b => b.Id).Last();
-                TextVolCW.Text = bill.ColdWater.ToString();
-                TextPriceCW.Text = bill.ColdWaterBill.ToString();
-                TextVolWWV.Text = bill.WarmWaterVol.ToString();
-                TextPriceWWV.Text = bill.WarmWaterVolBill.ToString();
-                TextVolWWE.Text = bill.WarmWaterEnergy.ToString();
-                TextPriceWWE.Text = bill.WarmWaterEnergyBill.ToString();
-                TextVolElD.Text = bill.ElectricityDay.ToString();
-                TextPriceElD.Text = bill.ElectricityDayBill.ToString();
-                TextVolElN.Text = bill.ElectricityNight.ToString();
-                TextPriceElN.Text = bill.ElectricityNightBill.ToString();
-                TextVolElFull.Text = bill.Electricity.ToString();
-                TextPriceElFull.Text = bill.ElectricityBill.ToString();
+                TextVolCW.Text = string.Format("{0:0.##}", bill.ColdWater);
+                TextPriceCW.Text = string.Format("{0:0.##}", bill.ColdWaterBill);
+                TextVolWWV.Text = string.Format("{0:0.##}", bill.WarmWaterVol);
+                TextPriceWWV.Text = string.Format("{0:0.##}", bill.WarmWaterVolBill);
+                TextVolWWE.Text = string.Format("{0:0.##}", bill.WarmWaterEnergy);
+                TextPriceWWE.Text = string.Format("{0:0.##}", bill.WarmWaterEnergyBill);
+                TextVolElD.Text = string.Format("{0:0.##}", bill.ElectricityDay);
+                TextPriceElD.Text = string.Format("{0:0.##}", bill.ElectricityDayBill);
+                TextVolElN.Text = string.Format("{0:0.##}", bill.ElectricityNight);
+                TextPriceElN.Text = string.Format("{0:0.##}", bill.ElectricityNightBill);
+                TextVolElFull.Text = string.Format("{0:0.##}", bill.Electricity);
+                TextPriceElFull.Text = string.Format("{0:0.##}", bill.ElectricityBill);
                 var fullPrice = bill.ColdWaterBill + bill.WarmWaterVolBill + bill.WarmWaterEnergyBill + bill.ElectricityBill;
-                TextFullPrice.Text = fullPrice.ToString();
+                TextFullPrice.Text = string.Format("{0:0.##}", fullPrice);
             }
         }
 

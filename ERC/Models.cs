@@ -10,13 +10,13 @@ namespace ERC
         [Key]
         public int Id { get; set; }
         public DateTime Date { get; private set; }
-        public int PersonsCount { get; private set; }
+        public double PersonsCount { get; private set; }
         public double ColdWater { get; private set; }
         public double WarmWaterVol { get; private set; }
         public double ElectricityDay { get; private set; }
         public double ElectricityNight { get; private set; }
 
-        public static MetersData GetMetersData(int personsCount, double coldWater, double warmWaterVol, double electricityDay, double electricityNight)
+        public static MetersData GetMetersData(double personsCount, double coldWater, double warmWaterVol, double electricityDay, double electricityNight)
         {
             var metersData = new MetersData();
             metersData.Date = DateTime.Now;
