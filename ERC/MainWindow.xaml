@@ -77,5 +77,11 @@
             Grid.Row="1" Grid.Column="5">Учесть</Button>
         <Border Grid.Row="8" Grid.Column="6" BorderBrush="Black" BorderThickness="1,1,1,1"/>
         <TextBlock x:Name="InfoPD" Grid.Row="8" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Top" Height="600" Text="Число дней/человек"/>
+        <Button            
+            x:Name="Guid"
+            Click="Guid_Click"
+            Background="Blue"
+            FontWeight="Bold"
+            Grid.Row="0" Grid.Column="0" Foreground="White">?</Button>
     </Grid>
 </Window>

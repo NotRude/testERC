@@ -71,18 +71,20 @@ namespace ERC
             var db = new AppContext();        
             tariff = db.Tariffs.OrderBy(t => t.Id).Last();
             bill.Date = DateTime.Now;
+
             if (relevantMD.ColdWater >= 0)
                 bill.ColdWater = Logic.GetConsumVolume(relevantMD.ColdWater, pastMD.ColdWater);
             else
                 bill.ColdWater = Logic.GetNorm(relevantMD.PersonsCount, tariff.ColdWaterNorm);
+
             bill.ColdWaterBill = Logic.GetBill(bill.ColdWater, tariff.ColdWater);
 
             if (relevantMD.WarmWaterVol >= 0)
                 bill.WarmWaterVol = Logic.GetConsumVolume(relevantMD.WarmWaterVol, pastMD.WarmWaterVol);
             else
                 bill.WarmWaterVol = Logic.GetNorm(relevantMD.PersonsCount, tariff.WarmWaterVolNorm);
-            bill.WarmWaterVolBill = Logic.GetBill(bill.WarmWaterVol, tariff.WarmWaterVol);
 
+            bill.WarmWaterVolBill = Logic.GetBill(bill.WarmWaterVol, tariff.WarmWaterVol);
             bill.WarmWaterEnergy = Logic.GetWarmWaterEnergy(bill.WarmWaterVol);
             bill.WarmWaterEnergyBill = Logic.GetBill(bill.WarmWaterEnergy, tariff.WarmWaterEnergy);
             if (relevantMD.ElectricityDay >= 0 && relevantMD.ElectricityNight >= 0)

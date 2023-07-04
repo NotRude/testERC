@@ -15,12 +15,10 @@ namespace ERC
         private int daysCount = DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month);
         public MainWindow()
         {
-
             AppContext db = new AppContext();
             db.Database.EnsureCreated();
             if (!db.Tariffs.Any())
             {
-
                 var tariff = new Tariff()
                 {
                     Date = DateTime.Now,
@@ -84,12 +82,14 @@ namespace ERC
             var coldWater = double.Parse(TextCW.Text);
             var warmWater = double.Parse(TextWW.Text);
             var electricityDay = double.Parse(TextElD.Text);
-            var electricityNight = double.Parse(TextElN.Text);            
+            var electricityNight = double.Parse(TextElN.Text);  
+            
             MetersData metersData = MetersData.GetMetersData(personCount, coldWater, warmWater, electricityDay, electricityNight);
             var db = new AppContext();
             var pastMetersData1 = db.MetersDatas.ToList<MetersData>();
             var pastMetersData = db.MetersDatas.OrderBy(md => md.Id).Last();
             var bill = Bill.GetBill(metersData, pastMetersData);
+
             db.Bills.Add(bill);
             db.MetersDatas.Add(metersData);
             db.SaveChanges();
@@ -194,6 +194,11 @@ namespace ERC
             {
                 Button_PC.Visibility = Visibility.Hidden;
             }
+        }
+
+        private void Guid_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Шаг1: Расставьте галочки на показатели, которые имеют счётчики. \n Шаг2: Если кнопка \"Учесть\" активна, впишите в поле \"Число человек/дней\" число человек и выбирите число дней из выпадающего списка. Повторяйте действие пока не кончится количество дней. \n Шаг3: Заполните оставшиеся поля.\n Шаг4: Нажмите на \"Передать\".");
         }
     }
 }
